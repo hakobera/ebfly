@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+# encoding: UTF-8
+
+require 'pathname'
+bin_file = Pathname.new(__FILE__).realpath
+
+$:.unshift File.expand_path("../../lib", bin_file)
+
+conf = File.expand_path("~/.ebfly")
+File.readlines(conf).each do |line|
+  key, val = line.split('=')
+  next if val.nil?
+  ENV[key.strip] = val.strip
+end
+
+require "ebfly/cli"
+Ebfly::CLI.start(ARGV)

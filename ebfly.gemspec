@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ebifly/version'
+require 'ebfly/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ebifly"
-  spec.version       = Ebifly::VERSION
+  spec.name          = "ebfly"
+  spec.version       = Ebfly::VERSION
   spec.authors       = ["Kazuyuki Honda"]
   spec.email         = ["hakobera@gmail.com"]
   spec.summary       = %q{Easy command line interface for Amazon ElasticBeanstalk}
@@ -19,4 +19,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency "aws-sdk"
+  spec.add_runtime_dependency "thor"
 end
