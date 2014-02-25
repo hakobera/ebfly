@@ -40,6 +40,16 @@ module Ebfly
       end
     end
 
+    desc "versions <name>", "Show the application versions"
+    def versions(name)
+      opts = {
+        application_name: name
+      } 
+      ret = run { eb.describe_application_versions(opts) }
+      debug(ret)
+      show_app_versions(ret[:application_versions])
+    end
+
     private
 
     def app_info(app)
@@ -58,8 +68,19 @@ module Ebfly
       puts "description:\t\t#{app[:description]}"
       puts "created at:\t\t#{app[:date_created]}"
       puts "updated at:\t\tapplication name: #{app[:date_updated]}"
-      puts "versions:\t\t#{app[:versions]}"
-      puts "configuration_templates:#{app[:configuration_templates]}"
+      puts "configuration_templates:"
+      app[:configuration_templates].each do |t|
+        puts "  #{t}"
+      end
+    end
+
+    def show_app_versions(versions)
+      len = versions.length
+      puts ""
+      puts "=== application versions ==="
+      versions.each_with_index do |v, i|
+        puts "#{len-i}. #{v[:version_label]}\t#{v[:date_updated]}"
+      end
     end
   end
 end
