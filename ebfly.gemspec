@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Ebfly::VERSION
   spec.authors       = ["Kazuyuki Honda"]
   spec.email         = ["hakobera@gmail.com"]
-  spec.summary       = %q{Easy command line interface for Amazon ElasticBeanstalk}
-  spec.description   = %q{Easy command line interface for Amazon ElasticBeanstalk}
+  spec.summary       = %q{Simple command line interface for AWS ElasticBeanstalk}
+  spec.description   = %q{Simple command line interface for AWS ElasticBeanstalk}
   spec.homepage      = "https://github.com/hakobera/ebifly"
   spec.license       = "Apache License, Version 2.0"
 
