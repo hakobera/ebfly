@@ -10,13 +10,23 @@ module Ebfly
       @eb.client
     end
 
+    def s3
+      @s3 ||= AWS::S3.new
+    end
+
     def run(&block)
       begin
-        yield
+        res = yield
+        raise res.error unless res.successful?
+        res
       rescue => err
         style_err(err)
         exit 1
       end
+    end
+
+    def s3_bucket
+      @s3_bucket ||= (run { eb.create_storage_location }[:s3_bucket])
     end
 
     def style_err(err)

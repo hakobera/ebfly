@@ -2,7 +2,7 @@ module Ebfly
   class App < Thor
     include Command
 
-    desc "Create app: <name>", "Create an application named <name>"
+    desc "create <name>", "Create an application named <name>"
     option :d, :banner => "<description>", :desc => "Describes the application"
     def create(name)
       puts "Create app: #{name} ..."
@@ -15,7 +15,7 @@ module Ebfly
       show_app_info(ret[:application])
     end
 
-    desc "Delete app: <name>", "Delete an application named <name>"
+    desc "delete <name>", "Delete an application named <name>"
     option :f, :desc => "Terminate running environment by force", :default => false, :type => :boolean
     def delete(name)
       puts "Delete app: #{name} ..."
@@ -28,7 +28,7 @@ module Ebfly
       puts "Done"
     end
 
-    desc "Info application: <name>", "Show information of the application"
+    desc "info <name>", "Show information of the application"
     def info(name)
       begin
         inf = app_info(name)
