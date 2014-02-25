@@ -101,6 +101,21 @@ module Ebfly
       end
     end
 
+    desc "conf <name>", "Get configuration of the environment"
+    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
+    def conf(name)
+      app = options[:a]
+
+      opts = {
+        application_name: app,
+        environment_name: env_name(app, name)
+      }
+
+      ret = run { eb.describe_configuration_settings(opts) }
+      debug(ret)
+      show_env_conf(app, name, ret)
+    end
+
     private
 
     PREDEFINED_SOLUTION_STACKS = {
@@ -213,6 +228,21 @@ module Ebfly
       puts "load balancers:\t\t#{res[:load_balancers]}"
       puts "triggers:\t\t#{res[:triggers]}"
       puts "queues:\t\t\t#{res[:queues]}"
+    end
+
+    def show_env_conf(app, env, res)
+      puts ""
+      puts "=== configvars of #{env_name(app, env)} ==="
+      settings = res[:configuration_settings]
+      settings.each do |setting|
+        opts = setting[:option_settings]
+        opts.each do |opt|
+          next unless opt[:option_name] == "EnvironmentVariables"
+          value = opt[:value]
+          kv = value.split(",")
+          puts kv
+        end
+      end
     end
   end
 end
