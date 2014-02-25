@@ -11,7 +11,7 @@ File.readlines(conf).each do |line|
   key, val = line.split('=')
   next if val.nil?
   ENV[key.strip] = val.strip
-end
+end if File.exist?(conf)
 
 require "ebfly/cli"
 Ebfly::CLI.start(ARGV)

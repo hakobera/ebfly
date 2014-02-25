@@ -2,8 +2,9 @@ module Ebfly
   class Environment < Thor
     include Command
 
+    class_option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
+
     desc "create <name>", "Create a environment named <name>"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     option :s, :required => true, :banner => "<solution stack name>", :desc => "This is an alternative to specifying a configuration name"
     option :t, :banner => "<type>", :default => "web", :desc => "tier type, web or worker"
     option :d, :banner => "<description>", :desc => "Describes the environment"
@@ -26,7 +27,6 @@ module Ebfly
     end
 
     desc "delete <name>", "Delete the environment named <name>"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     def delete(name)
       app = options[:a]
       puts "Delete environment: #{env_name(app, name)} ..."
@@ -38,7 +38,6 @@ module Ebfly
     end
 
     desc "info <name>", "Show information of the enviroment"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     option :r, :default => false, :desc => "Show environment resources info"
     def info(name)
       app = options[:a]
@@ -59,7 +58,6 @@ module Ebfly
     end
 
     desc "open <name>", "Open environment in browser (Mac OS Only)"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     def open(name)
       raise "This feature can run on Mac OS Only" unless exist_command?('open')
 
@@ -69,7 +67,6 @@ module Ebfly
     end
 
     desc "push <name> <branch or tree_ish>", "Push and deploy specified branch to environment"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     def push(name, branch)
       raise "git must be installed" unless exist_command?('git')
       app = options[:a]
@@ -101,53 +98,7 @@ module Ebfly
       end
     end
 
-    desc "conf <name>", "Get configuration of the environment"
-    option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
-    def conf(name)
-      app = options[:a]
-
-      opts = {
-        application_name: app,
-        environment_name: env_name(app, name)
-      }
-
-      ret = run { eb.describe_configuration_settings(opts) }
-      debug(ret)
-      show_env_conf(app, name, ret)
-    end
-
     private
-
-    PREDEFINED_SOLUTION_STACKS = {
-      "php53"    => "64bit Amazon Linux running PHP 5.3",
-      "php54"    => "64bit Amazon Linux 2013.09 running PHP 5.4",
-      "php55"    => "64bit Amazon Linux 2013.09 running PHP 5.5",
-      "nodejs"   => "64bit Amazon Linux 2013.09 running Node.js",
-      "java7"    => "64bit Amazon Linux 2013.09 running Tomcat 7 Java 7",
-      "java6"    => "64bit Amazon Linux 2013.09 running Tomcat 7 Java 6",
-      "python27" => "64bit Amazon Linux 2013.09 running Python 2.7",
-      "ruby18"   => "64bit Amazon Linux 2013.09 running Ruby 1.8.7",
-      "ruby19"   => "64bit Amazon Linux 2013.09 running Ruby 1.9.3",
-    }
-
-    def env_name(app, env)
-      "#{app}-#{env}"
-    end
-
-    def tier(type)
-      if type == "web"
-        return { name: "WebServer", type: "Standard", version: "1.0" }
-      elsif type == "worker"
-        return { name: "Worker", type: "SQS/HTTP", version: "1.0" }
-      else
-        raise "Environment tier definition not found"
-      end
-    end
-
-    def solution_stack(name)
-      return PREDEFINED_SOLUTION_STACKS[name] if PREDEFINED_SOLUTION_STACKS.key?(name)
-      return name
-    end
 
     def env_info(app, env)
       opts = {
@@ -228,21 +179,6 @@ module Ebfly
       puts "load balancers:\t\t#{res[:load_balancers]}"
       puts "triggers:\t\t#{res[:triggers]}"
       puts "queues:\t\t\t#{res[:queues]}"
-    end
-
-    def show_env_conf(app, env, res)
-      puts ""
-      puts "=== configvars of #{env_name(app, env)} ==="
-      settings = res[:configuration_settings]
-      settings.each do |setting|
-        opts = setting[:option_settings]
-        opts.each do |opt|
-          next unless opt[:option_name] == "EnvironmentVariables"
-          value = opt[:value]
-          kv = value.split(",")
-          puts kv
-        end
-      end
     end
   end
 end
