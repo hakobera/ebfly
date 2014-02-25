@@ -32,15 +32,21 @@ module Ebfly
         environment_name: env_name(options[:a], name)
       }
       run { eb.terminate_environment(opts) }
+      puts "Done"
     end
 
     desc "Info env: <name>", "Show information of the enviroment"
     option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
     option :r, :default => false, :desc => "Show environment resources info"
     def info(name)
-      inf = env_info(options[:a], name)
-      debug inf
-      show_env_info(inf)
+      begin 
+        inf = env_info(options[:a], name)
+        debug inf
+        show_env_info(inf)
+      rescue => err
+        style_err err
+        exit 1
+      end
 
       if options[:r]
         res = env_resources(options[:a], name)      
@@ -98,6 +104,7 @@ module Ebfly
         environment_names: [ env_name(app, env) ]
       }
       ret = run { eb.describe_environments(opts) }
+      raise "env named #{env_name(app, env)} not found" unless ret[:environments][0]
       ret[:environments][0]
     end
 
@@ -111,10 +118,11 @@ module Ebfly
 
     def show_env_info(res)
       puts ""
-      puts "=== info ==="
+      puts "=== environment info ==="
       puts "application name:\t#{res[:application_name]}"
       puts "environment id:\t\t#{res[:environment_id]}"
       puts "environment name:\t#{res[:environment_name]}"
+      puts "description:\t\t#{res[:description]}"
       puts "status:\t\t\t#{res[:status]}"
       puts "health:\t\t\t#{res[:health]}"
       puts "tier:\t\t\t#{res[:tier][:name]} #{res[:tier][:type]} #{res[:tier][:version]}"
@@ -126,7 +134,7 @@ module Ebfly
 
     def show_env_resources(res)
       puts ""
-      puts "=== resources ==="
+      puts "=== environment resources ==="
       puts "auto scaling groups:\t#{res[:auto_scaling_groups]}"
       puts "instances:\t\t#{res[:instances]}"
       puts "launch configurations:\t#{res[:launch_configurations]}"
