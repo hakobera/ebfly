@@ -5,6 +5,10 @@
 ## Subcommands
 
 - [create](#create)
+- [delete](#delete)
+- [info](#info)
+- [open](#open)
+- [push](#push)
 
 <a name="create"></a>
 ### create
