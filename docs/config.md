@@ -22,7 +22,7 @@ ebfly config add -a [app] -e [env] -c [key1=value1 key2=value2 ...]
 #### Options
 
 | Name | Description                                                                                | Required |
-| -----|:------------------------------------------------------------------------------------------:| --------:|
+| ---- | ------------------------------------------------------------------------------------------ | -------- |
 | -a   | The name of the application to add config vars.                                            | Yes      |
 | -e   | The name of the environment to add config vars.                                            | Yes      |
 | -c   | The config vars formated `key=value`. Each key-value pair must be separated by whitespace. | Yes      |
@@ -53,7 +53,7 @@ ebfly config rm -a [app] -e [env] -c [key1 key2 ...]
 #### Options
 
 | Name | Description                                                                 | Required |
-| -----|:---------------------------------------------------------------------------:| --------:|
+| ---- | --------------------------------------------------------------------------- | -------- |
 | -a   | The name of the application to remove config vars.                          | Yes      |
 | -e   | The name of the environment to remove config vars.                          | Yes      |
 | -c   | The config vars keys to remove. Each value must be separated by whitespace. | Yes      |
@@ -78,6 +78,6 @@ ebfly config show -a [app] -e [env]
 #### Options
 
 | Name | Description                                                                 | Required |
-| -----|:---------------------------------------------------------------------------:| --------:|
+| ---- | --------------------------------------------------------------------------- | -------- |
 | -a   | The name of the application to remove config vars.                          | Yes      |
 | -e   | The name of the environment to remove config vars.                          | Yes      |

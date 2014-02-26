@@ -21,7 +21,7 @@ ebfly app create [name] -d [desc]
 #### Options
 
 | Name | Description                         | Required |
-| -----|:-----------------------------------:| --------:|
+| ---- | ----------------------------------- | -------- |
 | -d   | The description of the application. | No       |
 
 <a name="delete"></a>
@@ -36,7 +36,7 @@ ebfly app delete [name] -f
 #### Options
 
 | Name | Description                                                                               | Required |
-| -----|:-----------------------------------------------------------------------------------------:| --------:|
+| ---- | ----------------------------------------------------------------------------------------- | -------- |
 | -f   | Determines if all running environments should be deleted before deleting the application. | No       |
 
 <a name="info"></a>
