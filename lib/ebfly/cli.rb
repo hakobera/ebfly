@@ -3,6 +3,7 @@ require "aws-sdk"
 
 require_relative 'ebfly'
 require_relative 'version'
+require_relative 'options'
 require_relative 'command/app'
 require_relative 'command/env'
 require_relative 'command/config'

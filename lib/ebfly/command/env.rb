@@ -1,6 +1,7 @@
 module Ebfly
   class Environment < Thor
     include Command
+    include Options
 
     desc "create <name>", "Create an environment named <name>"
     option :a, :required => true, :banner => "<app>", :desc => "Application name"
@@ -8,6 +9,7 @@ module Ebfly
     option :t, :banner => "<tier>", :default => "web", :desc => "Tier type (web|worker)"
     option :d, :banner => "<description>", :desc => "Describes the environment"
     option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
+    option :o, :banner => "<namespace:key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
     def create(name)
       app = options[:a]
       puts "Create environment: #{env_name(app, name)} ..."
@@ -18,7 +20,8 @@ module Ebfly
         tier: tier(options[:t])
       }
       opts.merge!(description: options[:d]) if options[:d]
-      opts.merge!(version_label: options[:v]) if options[:v]
+      opts.merge!(version_label: options[:l]) if options[:l]
+      opts.merge!(option_settings: parse_option_values(options[:o])) if options[:o] and !options[:o].empty?
       
       debug opts
       ret = run { eb.create_environment(opts) }
@@ -35,6 +38,26 @@ module Ebfly
       }
       run { eb.terminate_environment(opts) }
       puts "Done"
+    end
+
+    desc "update <name>", "Update the specified environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :d, :banner => "<description>", :desc => "Describes the environment"
+    option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
+    option :o, :banner => "<namespace:key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
+    def update(name)
+      app = options[:a]
+      puts "Update environment: #{env_name(app, name)} ..."
+      opts = {
+        environment_name: env_name(app, name)
+      }
+      opts.merge!(description: options[:d]) if options[:d]
+      opts.merge!(version_label: options[:l]) if options[:l]
+      opts.merge!(option_settings: parse_option_values(options[:o])) if options[:o] and !options[:o].empty?
+
+      debug(opts)
+      ret = run { eb.update_environment(opts) }
+      show_env_info(ret)
     end
 
     desc "info <name>", "Show the specified environment information."

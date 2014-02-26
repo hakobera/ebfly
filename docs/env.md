@@ -6,6 +6,7 @@
 
 - [create](#create)
 - [delete](#delete)
+- [update](#update)
 - [info](#info)
 - [open](#open)
 - [push](#push)
@@ -16,7 +17,7 @@
 Create an environment.
 
 ```
-ebfly env create [name] -a [app] -s [stack] -t [tier] -l [label] -d [desc]
+ebfly env create [name] -a [app] -s [stack] -t [tier] -l [label] -o [namespace-key=value ...] -d [desc]
 ```
 
 #### Options
@@ -27,6 +28,7 @@ ebfly env create [name] -a [app] -s [stack] -t [tier] -l [label] -d [desc]
 | -s   | The Solution stack name to create. Some [predefined values](#predefined_values) are available. | Yes      |
 | -t   | Tier type, value must be `web` or `worker`. Default value is `web`                             | No       |
 | -l   | The name of the application version to deploy                                                  | No       |
+| -o   | ElasticBeanstalk option values. For detail see [Option Values](#option_values) section         | No       |
 | -d   | The description of the application.                                                            | No       |
 
 #### Examples
@@ -37,10 +39,10 @@ Create Ruby 1.9 web environment.
 ebfly env create envname -a app -s ruby19 -t web
 ```
 
-Create Python 2.7 worker environment.
+Create Python 2.7 worker environment with option values.
 
 ```
-ebfly env create envname -a app -s python27 -t worker
+ebfly env create envname -a app -s python27 -t worker -o -o sqsd-MimeType="text/plain" sqsd-HttpPath="/enqueue"
 ```
 
 <a name="predefined_values"></a>
@@ -72,6 +74,24 @@ ebfly env delete [name] -a [app]
 | Name | Description                                 | Required |
 | ---- | ------------------------------------------- | -------- |
 | -a   | The application name to create environment. | Yes      |
+
+<a name="update"></a>
+### update
+
+Update an environment.
+
+```
+ebfly env update [name] -a [app] -l [label] -o [namespace-key=value ...] -d [desc]
+```
+
+#### Options
+
+| Name | Description                                                                                    | Required |
+| ---- | ---------------------------------------------------------------------------------------------- | -------- |
+| -a   | The application name to create environment.                                                    | Yes      |
+| -l   | The name of the application version to deploy                                                  | No       |
+| -o   | ElasticBeanstalk option values. For detail see [Option Values](#option_values) section         | No       |
+| -d   | The description of the application.                                                            | No       |
 
 <a name="info"></a>
 ### info
@@ -129,4 +149,39 @@ Push specified commit `66c598c` to the environment.
 
 ```
 ebfly env push envname 66c598c -a app
+```
+
+<a href="option_values"></a>
+## Option Values
+
+Option values format is `namespace-key=value` style.
+Which `namespace`, `key` and `value` can be used is describe at [AWS Elastic Beanstalk official document](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html).
+
+You can use short `namespace` as followings.
+
+| Short namespace      | Real namespace                              |
+| -------------------- | ------------------------------------------- |
+| asg                  | aws:autoscaling:asg                         |
+| launchconfiguration  | aws:autoscaling:launchconfiguration         |
+| trigger              | aws:autoscaling:trigger                     |
+| rollingupdate        | aws:autoscaling:updatepolicy:rollingupdate  |
+| vpc                  | aws:ec2:vpc                                 |
+| application          | aws:elasticbeanstalk:application            |
+| command              | aws:elasticbeanstalk:command                |
+| environment          | aws:elasticbeanstalk:environment            |
+| monitoring           | aws:elasticbeanstalk:monitoring             |
+| topics               | aws:elasticbeanstalk:sns:topics             |
+| sqsd                 | aws:elasticbeanstalk:sqsd                   |
+| healthcheck          | aws:elb:healthcheck                         |
+| loadbalancer         | aws:elb:loadbalancer                        |
+| policies             | aws:elb:policies                            |
+| dbinstance           | aws:rds:dbinstance                          |
+| hostmanager          | aws:elasticbeanstalk:hostmanager            |
+
+### Example
+
+Set `InstanceType` of `aws:autoscaling:launchconfiguration` to `m1.small`
+
+```
+ebfly env update name -a app -o launchconfiguration-InstanceType="m1.small"
 ```
