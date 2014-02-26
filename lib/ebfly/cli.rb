@@ -17,10 +17,10 @@ module Ebfly
     desc "app SUBCOMMAND ...ARGS", "manage application"
     subcommand "app", App
 
-    desc "env SUBCOMMAND ...ARGS -a APP", "manager environment"
+    desc "env SUBCOMMAND ...ARGS", "manage environment"
     subcommand "env", Environment
 
-    desc "config SUBCOMMAND ...ARGS -a APP", "manager environment's config vars"
+    desc "config SUBCOMMAND ...ARGS", "manage environment's config vars"
     subcommand "config", Config
   end
 end

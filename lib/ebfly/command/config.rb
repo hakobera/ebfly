@@ -2,10 +2,9 @@ module Ebfly
   class Config < Thor
     include Command
 
-    class_option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
-    class_option :e, :required => true, :banner => "<environment-name>", :desc => "Environment name"
-
-    desc "show", "Show environment's config vars"
+    desc "show", "Show config vars of the specified environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :e, :required => true, :banner => "<env>", :desc => "Environment name"
     def show
       app = options[:a]
       env = options[:e]
@@ -20,14 +19,18 @@ module Ebfly
       show_env_conf(app, env, ret)
     end
 
-    desc "rm", "Add configuration ot the environment"
+    desc "add", "Add config vars to the specified environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :e, :required => true, :banner => "<env>", :desc => "Environment name"
     option :c, :required => true, :banner => "<key1=value1 key2=value2 ...>", :type => :array, :desc => "Config vars"
     def add
       ret = add_environment_config(options[:a], options[:e], options[:c])
       debug(ret)
     end
 
-    desc "rm", "Remove configuration ot the environment"
+    desc "rm", "Remove config vars of the specified environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :e, :required => true, :banner => "<env>", :desc => "Environment name"
     option :c, :required => true, :banner => "<key1 key2 ...>", :type => :array, :desc => "Config vars"
     def rm
       ret = remove_environment_config(options[:a], options[:e], options[:c])

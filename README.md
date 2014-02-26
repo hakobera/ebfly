@@ -35,6 +35,14 @@ export AWS_SECRET_ACCESS_KEY='...'
 export AWS_REGION='us-east-1'
 ```
 
+## Documents
+
+Documents for each command is available on [docs](./docs).
+
+- [app](./docs/app.md)
+- [env](./docs/env.md)
+- [config](./docs/config.md)
+
 ## Quick Start
 
 If you want to deploy sinatra app, you should do following step.

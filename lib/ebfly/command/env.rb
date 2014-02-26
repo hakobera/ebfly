@@ -2,13 +2,12 @@ module Ebfly
   class Environment < Thor
     include Command
 
-    class_option :a, :required => true, :banner => "<application-name>", :desc => "Application name"
-
-    desc "create <name>", "Create a environment named <name>"
-    option :s, :required => true, :banner => "<solution stack name>", :desc => "This is an alternative to specifying a configuration name"
-    option :t, :banner => "<type>", :default => "web", :desc => "tier type, web or worker"
+    desc "create <name>", "Create an environment named <name>"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :s, :required => true, :banner => "<stack>", :desc => "The Solution stack name"
+    option :t, :banner => "<tier>", :default => "web", :desc => "Tier type (web|worker)"
     option :d, :banner => "<description>", :desc => "Describes the environment"
-    option :v, :banner => "<version label>", :desc => "The name of the application version to deploy"
+    option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
     def create(name)
       app = options[:a]
       puts "Create environment: #{env_name(app, name)} ..."
@@ -26,7 +25,8 @@ module Ebfly
       show_env_info(ret)
     end
 
-    desc "delete <name>", "Delete the environment named <name>"
+    desc "delete <name>", "Delete the specified environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
     def delete(name)
       app = options[:a]
       puts "Delete environment: #{env_name(app, name)} ..."
@@ -37,8 +37,9 @@ module Ebfly
       puts "Done"
     end
 
-    desc "info <name>", "Show information of the enviroment"
-    option :r, :default => false, :desc => "Show environment resources info"
+    desc "info <name>", "Show the specified environment information."
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
+    option :r, :default => false, :desc => "Show environment resources"
     def info(name)
       app = options[:a]
       begin 
@@ -57,7 +58,8 @@ module Ebfly
       end
     end
 
-    desc "open <name>", "Open environment in browser (Mac OS Only)"
+    desc "open <name>", "Open environment CNAME in browser (Mac OS Only)"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
     def open(name)
       raise "This feature can run on Mac OS Only" unless exist_command?('open')
 
@@ -66,7 +68,8 @@ module Ebfly
       system "open #{url}"
     end
 
-    desc "push <name> <branch or tree_ish>", "Push and deploy specified branch to environment"
+    desc "push <name> <branch or tree_ish>", "Push and deploy the specified branch to the environment"
+    option :a, :required => true, :banner => "<app>", :desc => "Application name"
     def push(name, branch)
       raise "git must be installed" unless exist_command?('git')
       app = options[:a]
