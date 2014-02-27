@@ -9,7 +9,7 @@ module Ebfly
     option :t, :banner => "<tier>", :default => "web", :desc => "Tier type (web|worker)"
     option :d, :banner => "<description>", :desc => "Describes the environment"
     option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
-    option :o, :banner => "<namespace:key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
+    option :o, :banner => "<namespace-key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
     def create(name)
       app = options[:a]
       puts "Create environment: #{env_name(app, name)} ..."
@@ -44,7 +44,7 @@ module Ebfly
     option :a, :required => true, :banner => "<app>", :desc => "Application name"
     option :d, :banner => "<description>", :desc => "Describes the environment"
     option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
-    option :o, :banner => "<namespace:key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
+    option :o, :banner => "<namespace-key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
     def update(name)
       app = options[:a]
       puts "Update environment: #{env_name(app, name)} ..."
