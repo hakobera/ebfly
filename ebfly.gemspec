@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hakobera@gmail.com"]
   spec.summary       = %q{Simple command line interface for AWS ElasticBeanstalk}
   spec.description   = %q{Simple command line interface for AWS ElasticBeanstalk}
-  spec.homepage      = "https://github.com/hakobera/ebifly"
+  spec.homepage      = "https://github.com/hakobera/ebfly"
   spec.license       = "Apache License, Version 2.0"
 
   spec.files         = `git ls-files -z`.split("\x0")
