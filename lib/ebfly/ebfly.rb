@@ -50,7 +50,14 @@ module Ebfly
     end
 
     def exist_command?(cmd)
-      Open3.capture3("type", cmd)[2].exitstatus == 0 rescue nil
+      exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
+      ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
+      exts.each { |ext|
+        exe = File.join(path, "#{cmd}#{ext}")
+        return exe if File.executable? exe
+      }
+      end
+      return nil
     end
 
     def env_name(app, env)
