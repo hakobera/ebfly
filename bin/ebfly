@@ -10,7 +10,7 @@ conf = File.expand_path("~/.ebfly")
 File.readlines(conf).each do |line|
   key, val = line.split('=')
   next if val.nil?
-  ENV[key.strip] = val.strip
+  ENV[key.strip] = val.strip unless ENV.key? key.strip
 end if File.exist?(conf)
 
 require "ebfly/cli"
