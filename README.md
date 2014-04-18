@@ -7,6 +7,15 @@ Ebfly is a simple command line interface for [AWS ElasticBeanstalk](http://aws.a
 - Ruby 1.9+
 - git
 
+## Supported platform
+
+ebfly only support following platforms.
+
+- Node.js
+- PHP
+- Python
+- Ruby
+
 ## Install
 
 Ebfly can be install via gem:
