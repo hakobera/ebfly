@@ -8,7 +8,6 @@ config vars means `aws:elasticbeanstalk:application:environment` namespace value
 - [add](#add)
 - [rm](#rm)
 - [show](#show)
-- [versions](#versions)
 
 <a name="add"></a>
 ### add
