@@ -15,7 +15,8 @@ module Ebfly
       "ruby18"   => "64bit Amazon Linux 2014.02 v1.0.1 running Ruby 1.8.7",
       "ruby19"   => "64bit Amazon Linux 2014.02 v1.0.1 running Ruby 1.9.3",
       "ruby20"   => "64bit Amazon Linux 2014.03 v1.0.1 running Ruby 2.0 (Passenger Standalone)",
-      "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.1 running Ruby 2.0 (Puma)" 
+      "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.1 running Ruby 2.0 (Puma)",
+      "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.2 running Docker 0.9.0"
     }
 
     def eb
