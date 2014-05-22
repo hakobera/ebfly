@@ -7,6 +7,7 @@
 - [create](#create)
 - [delete](#delete)
 - [info](#info)
+- [list](#list)
 - [versions](#versions)
 
 <a name="create"></a>
@@ -46,6 +47,19 @@ Show the specified application information.
 
 ```
 ebfly app info [name]
+```
+
+#### Options
+
+None
+
+<a name="list"></a>
+### list
+
+List all applications.
+
+```
+ebfly app list
 ```
 
 #### Options
