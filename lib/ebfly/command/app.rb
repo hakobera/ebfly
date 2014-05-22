@@ -40,6 +40,15 @@ module Ebfly
       end
     end
 
+    desc "list", "List all applications"
+    def list
+      ret = run { eb.describe_applications }
+      puts ret[:applications].map { |app| app[:application_name] }
+    rescue => err
+      style_err err
+      exit 1
+    end
+
     desc "versions <name>", "Show the application versions of specified application"
     def versions(name)
       opts = {
