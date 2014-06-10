@@ -6,7 +6,6 @@ require "open3"
 module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
-      "php53"    => "64bit Amazon Linux running PHP 5.3",
       "php54"    => "64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.4",
       "php55"    => "64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.5",
       "nodejs"   => "64bit Amazon Linux 2014.03 v1.0.3 running Node.js",
