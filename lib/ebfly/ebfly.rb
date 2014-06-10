@@ -7,16 +7,15 @@ module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
       "php53"    => "64bit Amazon Linux running PHP 5.3",
-      "php54"    => "64bit Amazon Linux 2014.02 v1.0.2 running PHP 5.4",
-      "php55"    => "64bit Amazon Linux 2014.02 v1.0.2 running PHP 5.5",
-      "nodejs"   => "64bit Amazon Linux 2014.02 v1.0.2 running Node.js",
-      "python26" => "64bit Amazon Linux 2013.09 v1.0.2 running Python",
-      "python27" => "64bit Amazon Linux 2013.09 v1.0.2 running Python 2.7",
-      "ruby18"   => "64bit Amazon Linux 2014.02 v1.0.1 running Ruby 1.8.7",
-      "ruby19"   => "64bit Amazon Linux 2014.02 v1.0.2 running Ruby 1.9.3",
-      "ruby20"   => "64bit Amazon Linux 2014.03 v1.0.2 running Ruby 2.0 (Passenger Standalone)",
-      "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Puma)",
-      "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.4 running Docker 0.9.0"
+      "php54"    => "64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.4",
+      "php55"    => "64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.5",
+      "nodejs"   => "64bit Amazon Linux 2014.03 v1.0.3 running Node.js",
+      "python26" => "64bit Amazon Linux 2014.03 v1.0.3 running Python",
+      "python27" => "64bit Amazon Linux 2014.03 v1.0.3 running Python 2.7",
+      "ruby19"   => "64bit Amazon Linux 2014.03 v1.0.3 running Ruby 1.9.3",
+      "ruby20"   => "64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Passenger Standalone)",
+      "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Puma)",
+      "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0"
     }
 
     def eb
