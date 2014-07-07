@@ -7,6 +7,7 @@ require_relative 'options'
 require_relative 'command/app'
 require_relative 'command/env'
 require_relative 'command/config'
+require_relative 'command/elasticbeanstalk'
 
 module Ebfly
   class CLI < Thor
@@ -23,5 +24,8 @@ module Ebfly
 
     desc "config SUBCOMMAND ...ARGS", "manage environment's config vars"
     subcommand "config", Config
+
+    desc "eb SUBCOMMAND ...ARGS", "Get information about ElasticBeanstalk"
+    subcommand "eb", ElasticBeanstalk
   end
 end

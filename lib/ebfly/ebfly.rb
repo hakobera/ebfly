@@ -17,6 +17,8 @@ module Ebfly
       "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0"
     }
 
+    SUPPORTED_SOLUTION_STACKS = ['Docker', 'Node.js', 'PHP', 'Python', 'Ruby']
+
     def eb
       @eb ||= AWS::ElasticBeanstalk.new
       @eb.client

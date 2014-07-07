@@ -11,6 +11,7 @@ Ebfly is a simple command line interface for [AWS ElasticBeanstalk](http://aws.a
 
 ebfly only support following platforms.
 
+- Docker
 - Node.js
 - PHP
 - Python
@@ -51,6 +52,7 @@ Documents for each command is available on [docs](./docs).
 - [app](./docs/app.md)
 - [env](./docs/env.md)
 - [config](./docs/config.md)
+- [eb](./docs/eb.md)
 
 ## Quick Start
 
