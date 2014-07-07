@@ -50,15 +50,17 @@ ebfly env create envname -a app -s python27 -t worker -o -o sqsd-MimeType="text/
 
 | Name        | Defined value                                                             |
 | ----------- | ------------------------------------------------------------------------- |
-| docker0.9   | 64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0                    |
-| nodejs      | 64bit Amazon Linux 2014.03 v1.0.3 running Node.js                         |
-| php54       | 64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.4                         |
-| php55       | 64bit Amazon Linux 2014.03 v1.0.3 running PHP 5.5                         |
-| python26    | 64bit Amazon Linux 2014.03 v1.0.3 running Python                          |
-| python27    | 64bit Amazon Linux 2014.03 v1.0.3 running Python 2.7                      |
-| ruby19      | 64bit Amazon Linux 2014.03 v1.0.3 running Ruby 1.9.3                      |
-| ruby20      | 64bit Amazon Linux 2014.03 v1.0.3 running Ruby 2.0 (Passenger Standalone) |
-| ruby20-puma | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Puma)                 |
+| docker0.9 (deprecated)   | 64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0                    |
+| docker09    | 64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0                    |
+| docker10    | 64bit Amazon Linux 2014.03 v1.0.1 running Docker 1.0.0                    |
+| nodejs      | 64bit Amazon Linux 2014.03 v1.0.4 running Node.js                         |
+| php54       | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.4                         |
+| php55       | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5                         |
+| python26    | 64bit Amazon Linux 2014.03 v1.0.4 running Python                          |
+| python27    | 64bit Amazon Linux 2014.03 v1.0.4 running Python 2.7                      |
+| ruby19      | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3                      |
+| ruby20      | 64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone) |
+| ruby20-puma | 64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)                 |
 
 You can specify full defined name, see in http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html
 
