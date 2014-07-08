@@ -72,6 +72,8 @@ module Ebfly
       if type == "web"
         return { name: "WebServer", type: "Standard", version: "1.0" }
       elsif type == "worker"
+        return { name: "Worker", type: "SQS/HTTP", version: "1.1" }
+      elsif type == "worker1.0"
         return { name: "Worker", type: "SQS/HTTP", version: "1.0" }
       else
         raise "Environment tier definition not found"
