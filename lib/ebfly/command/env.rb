@@ -6,7 +6,7 @@ module Ebfly
     desc "create <name>", "Create an environment named <name>"
     option :a, :required => true, :banner => "<app>", :desc => "Application name"
     option :s, :required => true, :banner => "<stack>", :desc => "The Solution stack name"
-    option :t, :banner => "<tier>", :default => "web", :desc => "Tier type (web|worker)"
+    option :t, :banner => "<tier>", :default => "web", :desc => "Tier type (web|worker|worker1.0)"
     option :d, :banner => "<description>", :desc => "Describes the environment"
     option :l, :banner => "<label>", :desc => "The name of the application version to deploy"
     option :o, :banner => "<namespace-key=value ...>", :type => :array, :desc => "ElasticBeanstalk option values. See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html"
