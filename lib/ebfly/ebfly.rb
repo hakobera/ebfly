@@ -14,6 +14,8 @@ module Ebfly
       "ruby19"   => "64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3",
       "ruby20"   => "64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone)",
       "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)",
+      "ruby21"   => "64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Passenger Standalone)",
+      "ruby21-puma" => "64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Puma)",
       "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
       "docker09" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
       "docker10" => "64bit Amazon Linux 2014.03 v1.0.1 running Docker 1.0.0"
