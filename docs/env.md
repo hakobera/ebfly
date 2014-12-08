@@ -53,6 +53,7 @@ ebfly env create envname -a app -s python27 -t worker -o -o sqsd-MimeType="text/
 | docker0.9 (deprecated)   | 64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0                    |
 | docker09    | 64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0                    |
 | docker10    | 64bit Amazon Linux 2014.03 v1.0.1 running Docker 1.0.0                    |
+| docker13    | 64bit Amazon Linux 2014.09 v1.0.10 running Docker 1.3.2                    |
 | nodejs      | 64bit Amazon Linux 2014.03 v1.0.4 running Node.js                         |
 | php54       | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.4                         |
 | php55       | 64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5                         |
