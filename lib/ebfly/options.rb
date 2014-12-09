@@ -12,7 +12,7 @@ module Ebfly
       "vpc" => "aws:ec2:vpc",
       "application" => "aws:elasticbeanstalk:application",
       "command" => "aws:elasticbeanstalk:command",
-      "environment" => "aws:elasticbeanstalk:environment",
+      "environment" => "aws:elasticbeanstalk:application:environment",
       "monitoring" => "aws:elasticbeanstalk:monitoring",
       "topics" => "aws:elasticbeanstalk:sns:topics",
       "sqsd" => "aws:elasticbeanstalk:sqsd",
