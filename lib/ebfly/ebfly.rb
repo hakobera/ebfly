@@ -6,19 +6,19 @@ require "open3"
 module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
-      "php54"    => "64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.4",
-      "php55"    => "64bit Amazon Linux 2014.03 v1.0.4 running PHP 5.5",
-      "nodejs"   => "64bit Amazon Linux 2014.03 v1.0.4 running Node.js",
-      "python26" => "64bit Amazon Linux 2014.03 v1.0.4 running Python",
-      "python27" => "64bit Amazon Linux 2014.03 v1.0.4 running Python 2.7",
-      "ruby19"   => "64bit Amazon Linux 2014.03 v1.0.4 running Ruby 1.9.3",
-      "ruby20"   => "64bit Amazon Linux 2014.03 v1.0.4 running Ruby 2.0 (Passenger Standalone)",
-      "ruby20-puma" => "64bit Amazon Linux 2014.03 v1.0.5 running Ruby 2.0 (Puma)",
-      "ruby21"   => "64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Passenger Standalone)",
-      "ruby21-puma" => "64bit Amazon Linux 2014.03 v1.0.0 running Ruby 2.1 (Puma)",
+      "php54"    => "64bit Amazon Linux 2014.09 v1.0.9 running PHP 5.4",
+      "php55"    => "64bit Amazon Linux 2014.09 v1.0.9 running PHP 5.5",
+      "nodejs"   => "64bit Amazon Linux 2014.09 v1.0.9 running Node.js",
+      "python26" => "64bit Amazon Linux 2014.09 v1.0.9 running Python",
+      "python27" => "64bit Amazon Linux 2014.09 v1.0.9 running Python 2.7",
+      "ruby19"   => "64bit Amazon Linux 2014.09 v1.0.9 running Ruby 1.9.3",
+      "ruby20"   => "64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Passenger Standalone)",
+      "ruby20-puma" => "64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.0 (Puma)",
+      "ruby21"   => "64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Passenger Standalone)",
+      "ruby21-puma" => "64bit Amazon Linux 2014.09 v1.0.9 running Ruby 2.1 (Puma)",
       "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
       "docker09" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
-      "docker10" => "64bit Amazon Linux 2014.03 v1.0.1 running Docker 1.0.0",
+      "docker10" => "64bit Amazon Linux 2014.03 v1.0.9 running Docker 1.0.0",
       "docker13" => "64bit Amazon Linux 2014.09 v1.0.10 running Docker 1.3.2",
     }
 
