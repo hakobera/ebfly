@@ -19,7 +19,7 @@ module Ebfly
       "docker0.9" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
       "docker09" => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
       "docker10" => "64bit Amazon Linux 2014.03 v1.0.9 running Docker 1.0.0",
-      "docker13" => "64bit Amazon Linux 2014.09 v1.0.10 running Docker 1.3.2",
+      "docker13" => "64bit Amazon Linux 2014.09 v1.0.11 running Docker 1.3.3",
     }
 
     SUPPORTED_SOLUTION_STACKS = ['Docker', 'Node.js', 'PHP', 'Python', 'Ruby']
