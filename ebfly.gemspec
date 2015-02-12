@@ -19,6 +19,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-Stable-Release-of-AWS-SDK-for-Ruby-Version-2
-  spec.add_runtime_dependency "aws-sdk", "< 2.0"
+  spec.add_runtime_dependency "aws-sdk-v1"
   spec.add_runtime_dependency "thor"
 end

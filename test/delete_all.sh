@@ -1,8 +1,8 @@
 #!/bin/bash
 
-for ss in docker09 docker10 nodejs php54 php55 python26 python27 ruby19 ruby20 ruby20-puma
+for ss in docker09 docker10 docker13 nodejs php54 php55 python26 python27 ruby19 ruby20 ruby20-puma ruby21 ruby21-puma
 do
-  ./bin/ebfly env delete $ss -a ebfly-test
+  bundle exec ./bin/ebfly env delete $ss -a ebfly-test
 done
 
-./bin/ebfly app delete ebfly-test
+bundle exec ./bin/ebfly app delete ebfly-test
