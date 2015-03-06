@@ -6,6 +6,7 @@ config vars means `aws:elasticbeanstalk:application:environment` namespace value
 ## Subcommands
 
 - [add](#add)
+- [copy](#copy)
 - [rm](#rm)
 - [show](#show)
 
@@ -38,6 +39,32 @@ ebfly config add -a app -e env -c RACK_ENV=production
 
 ```
 ebfly config add -a app -e env -c ENV1=val1 ENV2=val2
+```
+
+<a name="copy"></a>
+### copy
+
+Copy all config vars to the specified environment from another environment.
+If destination environment has same name config vars, it is orverwritten.
+
+```
+ebfly config copy -a [app] -e [env] -s [source-env]
+```
+
+#### Options
+
+| Name | Description                                                                                | Required |
+| ---- | ------------------------------------------------------------------------------------------ | -------- |
+| -a   | The name of the application to copy config vars.                                           | Yes      |
+| -e   | The name of the destination environment to copy config vars.                               | Yes      |
+| -s   | The name of the source environment config vars.                                            | Yes      |
+
+#### Examples
+
+- Copy config from `source-env` to `dest-env`.
+
+```
+ebfly config copy -a app -e dest-env -s source-env
 ```
 
 <a name="rm"></a>
