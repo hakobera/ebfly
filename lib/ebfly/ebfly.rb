@@ -6,25 +6,19 @@ require "open3"
 module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
-      "docker0.9"   => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
-      "docker09"    => "64bit Amazon Linux 2014.03 v1.0.5 running Docker 0.9.0",
-      "docker10"    => "64bit Amazon Linux 2014.03 v1.0.9 running Docker 1.0.0",
-      "docker13"    => "64bit Amazon Linux 2014.09 v1.2.0 running Docker 1.3.3",
-      "docker16"    => "64bit Amazon Linux 2015.03 v1.4.1 running Docker 1.6.0",
-      "nodejs"      => "64bit Amazon Linux 2015.03 v1.4.1 running Node.js",
-      "php54"       => "64bit Amazon Linux 2015.03 v1.4.2 running PHP 5.4",
-      "php55"       => "64bit Amazon Linux 2015.03 v1.4.2 running PHP 5.5",
-      "php56"       => "64bit Amazon Linux 2015.03 v1.4.2 running PHP 5.6",
-      "python26"    => "64bit Amazon Linux 2015.03 v1.4.1 running Python 2.6",
-      "python27"    => "64bit Amazon Linux 2015.03 v1.4.1 running Python 2.7",
-      "python34"    => "64bit Amazon Linux 2014.09 v1.2.0 running Python 2.7",
-      "ruby19"      => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 1.9.3",
-      "ruby20"      => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Passenger Standalone)",
-      "ruby20-puma" => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.0 (Puma)",
-      "ruby21"      => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Passenger Standalone)",
-      "ruby21-puma" => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.1 (Puma)",
-      "ruby22"      => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Passenger Standalone)",
-      "ruby22-puma" => "64bit Amazon Linux 2015.03 v1.4.1 running Ruby 2.2 (Puma)",
+      "docker16"    => "64bit Amazon Linux 2015.03 v1.4.3 running Docker 1.6.2",
+      "nodejs"      => "64bit Amazon Linux 2015.03 v1.4.3 running Node.js",
+      "php55"       => "64bit Amazon Linux 2015.03 v1.4.3 running PHP 5.5",
+      "php56"       => "64bit Amazon Linux 2015.03 v1.4.3 running PHP 5.6",
+      "python27"    => "64bit Amazon Linux 2015.03 v1.4.3 running Python 2.7",
+      "python34"    => "64bit Amazon Linux 2015.03 v1.4.3 running Python 2.7",
+      "ruby19"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 1.9.3",
+      "ruby20"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Passenger Standalone)",
+      "ruby20-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Puma)",
+      "ruby21"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Passenger Standalone)",
+      "ruby21-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Puma)",
+      "ruby22"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Passenger Standalone)",
+      "ruby22-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Puma)",
     }
 
     SUPPORTED_SOLUTION_STACKS = ['Docker', 'Node.js', 'PHP', 'Python', 'Ruby']

@@ -7,5 +7,6 @@ bundle exec ./bin/ebfly app create ebfly-test
 
 for ss in $SOLUTION_STACKS
 do
+  echo ""
   bundle exec ./bin/ebfly env create $ss -s $ss -a ebfly-test
 done
