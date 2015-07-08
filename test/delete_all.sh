@@ -5,6 +5,7 @@ source $DIR/common.sh
 
 for ss in $SOLUTION_STACKS
 do
+  echo ""
   bundle exec ./bin/ebfly env delete $ss -a ebfly-test
 done
 
