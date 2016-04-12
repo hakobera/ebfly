@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   # http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-Stable-Release-of-AWS-SDK-for-Ruby-Version-2
   spec.add_runtime_dependency "aws-sdk-v1"
   spec.add_runtime_dependency "thor"
+
+  spec.add_development_dependency "rake"
 end
