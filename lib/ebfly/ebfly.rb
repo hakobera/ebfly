@@ -6,22 +6,25 @@ require "open3"
 module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
-      "docker16"    => "64bit Amazon Linux 2015.03 v1.4.3 running Docker 1.6.2",
-      "nodejs"      => "64bit Amazon Linux 2015.03 v1.4.3 running Node.js",
-      "php55"       => "64bit Amazon Linux 2015.03 v1.4.3 running PHP 5.5",
-      "php56"       => "64bit Amazon Linux 2015.03 v1.4.3 running PHP 5.6",
-      "python27"    => "64bit Amazon Linux 2015.03 v1.4.3 running Python 2.7",
-      "python34"    => "64bit Amazon Linux 2015.03 v1.4.3 running Python 2.7",
-      "ruby19"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 1.9.3",
-      "ruby20"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Passenger Standalone)",
-      "ruby20-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.0 (Puma)",
-      "ruby21"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Passenger Standalone)",
-      "ruby21-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.1 (Puma)",
-      "ruby22"      => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Passenger Standalone)",
-      "ruby22-puma" => "64bit Amazon Linux 2015.03 v1.4.3 running Ruby 2.2 (Puma)",
+      "docker"      => "64bit Amazon Linux 2016.03 v2.1.0 running Docker 1.9.1",
+      "go"          => "64bit Amazon Linux 2016.03 v2.1.0 running Go 1.4",
+      "nodejs"      => "64bit Amazon Linux 2016.03 v2.1.0 running Node.js",
+      "php55"       => "64bit Amazon Linux 2016.03 v2.1.0 running PHP 5.5",
+      "php56"       => "64bit Amazon Linux 2016.03 v2.1.0 running PHP 5.6",
+      "python27"    => "64bit Amazon Linux 2016.03 v2.1.0 running Python 2.7",
+      "python34"    => "64bit Amazon Linux 2016.03 v2.1.0 running Python 2.7",
+      "ruby19"      => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 1.9.3",
+      "ruby20"      => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0 (Passenger Standalone)",
+      "ruby20-puma" => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.0 (Puma)",
+      "ruby21"      => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1 (Passenger Standalone)",
+      "ruby21-puma" => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.1 (Puma)",
+      "ruby22"      => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2 (Passenger Standalone)",
+      "ruby22-puma" => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.2 (Puma)",
+      "ruby23"      => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3 (Passenger Standalone)",
+      "ruby23-puma" => "64bit Amazon Linux 2016.03 v2.1.0 running Ruby 2.3 (Puma)",
     }
 
-    SUPPORTED_SOLUTION_STACKS = ['Docker', 'Node.js', 'PHP', 'Python', 'Ruby']
+    SUPPORTED_SOLUTION_STACKS = ['Docker', 'Go', 'Node.js', 'PHP', 'Python', 'Ruby']
 
     def eb
       @eb ||= AWS::ElasticBeanstalk.new
