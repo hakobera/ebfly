@@ -27,12 +27,11 @@ module Ebfly
     SUPPORTED_SOLUTION_STACKS = ['Docker', 'Go', 'Node.js', 'PHP', 'Python', 'Ruby']
 
     def eb
-      @eb ||= AWS::ElasticBeanstalk.new
-      @eb.client
+      @eb ||= Aws::ElasticBeanstalk::Client.new
     end
 
     def s3
-      @s3 ||= AWS::S3.new
+      @s3 ||= Aws::S3::Resource.new
     end
 
     def run(&block)
@@ -61,10 +60,10 @@ module Ebfly
     def exist_command?(cmd)
       exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
       ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
-      exts.each { |ext|
-        exe = File.join(path, "#{cmd}#{ext}")
-        return exe if File.executable? exe
-      }
+        exts.each { |ext|
+          exe = File.join(path, "#{cmd}#{ext}")
+          return exe if File.executable? exe
+        }
       end
       return nil
     end

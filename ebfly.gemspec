@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  # http://ruby.awsblog.com/post/TxFKSK2QJE6RPZ/Upcoming-Stable-Release-of-AWS-SDK-for-Ruby-Version-2
-  spec.add_runtime_dependency "aws-sdk-v1"
+  spec.add_runtime_dependency "aws-sdk-s3"
+  spec.add_runtime_dependency "aws-sdk-elasticbeanstalk"
   spec.add_runtime_dependency "thor"
 
   spec.add_development_dependency "rake"
