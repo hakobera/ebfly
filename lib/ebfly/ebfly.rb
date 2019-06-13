@@ -1,5 +1,4 @@
 require "thor"
-require "aws-sdk-v1"
 require "pp"
 require "open3"
 
