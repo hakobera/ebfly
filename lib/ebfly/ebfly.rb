@@ -2,6 +2,9 @@ require "thor"
 require "pp"
 require "open3"
 
+require 'aws-sdk-elasticbeanstalk'
+require 'aws-sdk-s3'
+
 module Ebfly
   module Command
     PREDEFINED_SOLUTION_STACKS = {
